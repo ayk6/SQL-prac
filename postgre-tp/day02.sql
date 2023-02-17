@@ -39,5 +39,7 @@ create table classes (
 	clsName varchar(10),
 	foreign key (stuid) references students5 (stuid)
 );
+-- foreign key can be null
+-- but cannot be data that is not in the main table
 
 select * from classes
