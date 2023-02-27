@@ -25,3 +25,30 @@ delete from cities -- all elements deleted
 -- we cannot delete table or data parent table before child
 -- bc foreign key
 select * from cities where cityName='la'
+
+-- truncate deletes all data - no rollback
+truncate table cities
+-- we cannot use truncate with where command
+
+-- we cannot delete table or data parent table before child
+-- using ON DELETE CASCADE we can delete data on parent
+-- this command also deletes child data
+
+drop table if exists cities2 -- skipped, no error message
+
+create table cityCode(
+	cityid int primary key,
+	name varchar(20),
+	constraint cityFK foreign key (cityid) references cities(zipCode)
+	on delete cascade
+);
+
+select * from cities;
+select * from cityCode;
+
+insert into cityCode values(1001,'losAngeles');
+insert into cityCode values(1002,'Albuquerque');
+insert into cityCode values(1003,'Texas');
+
+-- now we can delete data parent table, bc on delete cascade
+delete from cities where zipCode=1003;
