@@ -20,8 +20,10 @@ select count(*) from employees  -- counts rows (include null)
 -- AGGREGATE METHODS SUBQUERY
 select wpname,(select count(city) from employees where wpname=workplace) from workplaces;
 
-
-
+-- View 
+-- saves query nd when we need this, we can call w views
+create view minSalary2 as select min(salary) from employees as minsalary;
+select * from minsalary2
 
 
 
