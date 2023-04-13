@@ -1,3 +1,4 @@
 # SQL-prac
 
-mySql and postrgreSql prac
+mySql and postrgreSql pracc
+
