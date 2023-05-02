@@ -21,7 +21,7 @@ select empid from employees where salary>40000
 intersect
 select empid from employees where workplace in ('cook')
 
--- except operator  // not including
+-- except operator    // not including
 select empid from employees where salary>40000
 except
 select empid from employees where workplace in ('cook')
