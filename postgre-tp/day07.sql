@@ -48,11 +48,17 @@ select * from products
 			insert into staff3 values (default, 'walt', 'abq', 60000);
 			insert into staff3 values (default, 'jess', 'la', 5000);
 			savepoint x;
-			insert into staff3 values (default, 'mike', 'arz', 45000, 'fire');
+			insert into staff3 values (default, 'mike', 'arz', 45000);
+			rollback to x;
 			savepoint y;
-			insert into staff3 values (default, 'jim', 'nm', 100000, 'law');
+			insert into staff3 values (default, 'jim', 'nm', 100000);
 			rollback to y;
 			commit;
 			
 			select * from staff3
+			
+			delete from staff3
+			drop table staff3
+			
+			rollback to x
 	
